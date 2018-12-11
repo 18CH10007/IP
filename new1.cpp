@@ -5,8 +5,14 @@
 using namespace cv;
 using namespace std;
 int main(){
-Mat a(320,320,CV_8UC3, Scalar(0,223,255));
-int x=a.at<Vec3b>(2,5)[2];
+Mat a(320,320,CV_8UC3, Scalar(255,255,255));
+int i,j;
+for(i=0;i<320;i++){
+for(j=0;j<320;j++){
+if(((i/40)%2)==((j/40)%2))
+a.at<Vec3b>(i,j)=(0,0,0);
+}
+}
 namedWindow("window1", WINDOW_NORMAL);
 imshow("window1", a);
 waitKey(0);
